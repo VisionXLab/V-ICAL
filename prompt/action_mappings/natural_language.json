@@ -1,0 +1,4207 @@
+{
+  "version": "2.0",
+  "description": "Natural language to action ID mapping for all supported games. Canonical names match PREDEFINED_ACTION_MEANINGS exactly (concise English).",
+  "games": {
+    "Taxi-v3": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "south",
+            "move down",
+            "go down",
+            "go south"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "north",
+            "move up",
+            "go up",
+            "go north"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "east",
+            "move right",
+            "go right",
+            "go east"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "west",
+            "move left",
+            "go left",
+            "go west"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Pickup",
+          "variants": [
+            "pickup",
+            "pick up",
+            "pick",
+            "grab",
+            "take"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Dropoff",
+          "variants": [
+            "dropoff",
+            "drop off",
+            "drop",
+            "deliver"
+          ]
+        }
+      ]
+    },
+    "CliffWalking-v1": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "north",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "east",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "south",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "west",
+            "move left",
+            "go left"
+          ]
+        }
+      ]
+    },
+    "CartPole-v1": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "push left",
+            "go left",
+            "move left"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "push right",
+            "go right",
+            "move right"
+          ]
+        }
+      ]
+    },
+    "Acrobot-v1": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Torque -1",
+          "variants": [
+            "torque -1",
+            "-1",
+            "negative",
+            "negative torque"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "No Torque",
+          "variants": [
+            "no torque",
+            "0",
+            "none",
+            "noop",
+            "neutral",
+            "do nothing"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Torque +1",
+          "variants": [
+            "torque +1",
+            "+1",
+            "positive",
+            "positive torque"
+          ]
+        }
+      ]
+    },
+    "ALE/Enduro-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle",
+            "stay"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Accelerate",
+          "variants": [
+            "accelerate",
+            "gas",
+            "speed up",
+            "fire"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "steer right",
+            "move right"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "steer left",
+            "move left"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Brake",
+          "variants": [
+            "brake",
+            "slow",
+            "decelerate",
+            "down"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Brake+Right",
+          "variants": [
+            "brake right",
+            "brake+right",
+            "down right"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Brake+Left",
+          "variants": [
+            "brake left",
+            "brake+left",
+            "down left"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Accelerate+Right",
+          "variants": [
+            "accelerate right",
+            "accelerate+right",
+            "right fire"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Accelerate+Left",
+          "variants": [
+            "accelerate left",
+            "accelerate+left",
+            "left fire"
+          ]
+        }
+      ]
+    },
+    "ALE/Freeway-v5": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle",
+            "stay"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "forward",
+            "cross",
+            "go up",
+            "move up"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "back",
+            "retreat",
+            "go down",
+            "move down"
+          ]
+        }
+      ]
+    },
+    "ALE/Seaquest-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "torpedo",
+            "attack"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "surface",
+            "rise",
+            "ascend",
+            "move up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "dive",
+            "descend",
+            "submerge",
+            "move down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Shoot",
+          "variants": [
+            "up shoot",
+            "up+shoot",
+            "up fire",
+            "shoot up"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Shoot",
+          "variants": [
+            "right shoot",
+            "right+shoot",
+            "right fire",
+            "shoot right"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Shoot",
+          "variants": [
+            "left shoot",
+            "left+shoot",
+            "left fire",
+            "shoot left"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Shoot",
+          "variants": [
+            "down shoot",
+            "down+shoot",
+            "down fire",
+            "shoot down"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Shoot",
+          "variants": [
+            "up right shoot",
+            "up+right+shoot"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Shoot",
+          "variants": [
+            "up left shoot",
+            "up+left+shoot"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Shoot",
+          "variants": [
+            "down right shoot",
+            "down+right+shoot"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Shoot",
+          "variants": [
+            "down left shoot",
+            "down+left+shoot"
+          ]
+        }
+      ]
+    },
+    "ALE/Pong-v5": {
+      "simple_ids": [
+        0,
+        2,
+        3
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle",
+            "stay"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Fire",
+          "variants": [
+            "fire",
+            "serve",
+            "launch"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Up+Fire",
+          "variants": [
+            "up fire",
+            "up+fire"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down+Fire",
+          "variants": [
+            "down fire",
+            "down+fire"
+          ]
+        }
+      ]
+    },
+    "CustomBreakout": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle",
+            "stay",
+            "hold"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Fire",
+          "variants": [
+            "fire",
+            "launch",
+            "start",
+            "serve"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        }
+      ]
+    },
+    "MountainCar-v0": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Accelerate Left",
+          "variants": [
+            "accelerate left",
+            "push left",
+            "left",
+            "go left"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "No Accelerate",
+          "variants": [
+            "no accelerate",
+            "noop",
+            "wait",
+            "do nothing",
+            "coast",
+            "idle"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Accelerate Right",
+          "variants": [
+            "accelerate right",
+            "push right",
+            "right",
+            "go right"
+          ]
+        }
+      ]
+    },
+    "MiniGrid-LavaCrossingS11N5-v0": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "turn left",
+            "rotate left",
+            "left turn"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "turn right",
+            "rotate right",
+            "right turn"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Forward",
+          "variants": [
+            "forward",
+            "move forward",
+            "go forward",
+            "advance"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Pickup",
+          "variants": [
+            "pickup",
+            "pick up",
+            "pick",
+            "grab",
+            "take"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Drop",
+          "variants": [
+            "drop",
+            "put down",
+            "place"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Toggle",
+          "variants": [
+            "toggle",
+            "open",
+            "use",
+            "interact",
+            "open door"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Done",
+          "variants": [
+            "done",
+            "finish",
+            "complete",
+            "end"
+          ]
+        }
+      ]
+    },
+    "MiniGrid-UnlockPickup-v0": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "turn left",
+            "rotate left",
+            "left turn"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "turn right",
+            "rotate right",
+            "right turn"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Forward",
+          "variants": [
+            "forward",
+            "move forward",
+            "go forward",
+            "advance"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Pickup",
+          "variants": [
+            "pickup",
+            "pick up",
+            "pick",
+            "grab",
+            "take"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Drop",
+          "variants": [
+            "drop",
+            "put down",
+            "place"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Toggle",
+          "variants": [
+            "toggle",
+            "open",
+            "use",
+            "interact",
+            "open door"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Done",
+          "variants": [
+            "done",
+            "finish",
+            "complete",
+            "end"
+          ]
+        }
+      ]
+    },
+    "MiniGrid-MultiRoom-N6-v0": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "turn left",
+            "rotate left",
+            "left turn"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "turn right",
+            "rotate right",
+            "right turn"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Forward",
+          "variants": [
+            "forward",
+            "move forward",
+            "go forward",
+            "advance"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Pickup",
+          "variants": [
+            "pickup",
+            "pick up",
+            "pick",
+            "grab",
+            "take"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Drop",
+          "variants": [
+            "drop",
+            "put down",
+            "place"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Toggle",
+          "variants": [
+            "toggle",
+            "open",
+            "use",
+            "interact",
+            "open door"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Done",
+          "variants": [
+            "done",
+            "finish",
+            "complete",
+            "end"
+          ]
+        }
+      ]
+    },
+    "CustomLavaCrossing-v0": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "turn left",
+            "rotate left",
+            "left turn"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "turn right",
+            "rotate right",
+            "right turn"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Forward",
+          "variants": [
+            "forward",
+            "move forward",
+            "go forward",
+            "advance"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Pickup",
+          "variants": [
+            "pickup",
+            "pick up",
+            "pick",
+            "grab",
+            "take"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Drop",
+          "variants": [
+            "drop",
+            "put down",
+            "place"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Toggle",
+          "variants": [
+            "toggle",
+            "open",
+            "use",
+            "interact",
+            "open door"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Done",
+          "variants": [
+            "done",
+            "finish",
+            "complete",
+            "end"
+          ]
+        }
+      ]
+    },
+    "CustomMultiRoom-v0": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "turn left",
+            "rotate left",
+            "left turn"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "turn right",
+            "rotate right",
+            "right turn"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Forward",
+          "variants": [
+            "forward",
+            "move forward",
+            "go forward",
+            "advance"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Pickup",
+          "variants": [
+            "pickup",
+            "pick up",
+            "pick",
+            "grab",
+            "take"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Drop",
+          "variants": [
+            "drop",
+            "put down",
+            "place"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Toggle",
+          "variants": [
+            "toggle",
+            "open",
+            "use",
+            "interact",
+            "open door"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Done",
+          "variants": [
+            "done",
+            "finish",
+            "complete",
+            "end"
+          ]
+        }
+      ]
+    },
+    "CustomUnlockPickup-v0": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "turn left",
+            "rotate left",
+            "left turn"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "turn right",
+            "rotate right",
+            "right turn"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Forward",
+          "variants": [
+            "forward",
+            "move forward",
+            "go forward",
+            "advance"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Pickup",
+          "variants": [
+            "pickup",
+            "pick up",
+            "pick",
+            "grab",
+            "take"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Drop",
+          "variants": [
+            "drop",
+            "put down",
+            "place"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Toggle",
+          "variants": [
+            "toggle",
+            "open",
+            "use",
+            "interact",
+            "open door"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Done",
+          "variants": [
+            "done",
+            "finish",
+            "complete",
+            "end"
+          ]
+        }
+      ]
+    },
+    "ALE/Frostbite-v5": {
+      "simple_ids": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Enter Igloo",
+          "variants": [
+            "enter igloo",
+            "enter",
+            "fire",
+            "igloo"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "jump",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Enter Igloo",
+          "variants": [
+            "up enter igloo",
+            "up+enter igloo",
+            "up fire"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Enter Igloo",
+          "variants": [
+            "right enter igloo",
+            "right+enter igloo",
+            "right fire"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Enter Igloo",
+          "variants": [
+            "left enter igloo",
+            "left+enter igloo",
+            "left fire"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Enter Igloo",
+          "variants": [
+            "down enter igloo",
+            "down+enter igloo",
+            "down fire"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Enter Igloo",
+          "variants": [
+            "up right enter igloo",
+            "up+right+enter igloo"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Enter Igloo",
+          "variants": [
+            "up left enter igloo",
+            "up+left+enter igloo"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Enter Igloo",
+          "variants": [
+            "down right enter igloo",
+            "down+right+enter igloo"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Enter Igloo",
+          "variants": [
+            "down left enter igloo",
+            "down+left+enter igloo"
+          ]
+        }
+      ]
+    },
+    "ALE/Assault-v5": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "attack",
+            "blast"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Right+Shoot",
+          "variants": [
+            "right shoot",
+            "right+shoot",
+            "shoot right",
+            "right fire"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Left+Shoot",
+          "variants": [
+            "left shoot",
+            "left+shoot",
+            "shoot left",
+            "left fire"
+          ]
+        }
+      ]
+    },
+    "ALE/Asterix-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        }
+      ]
+    },
+    "ALE/DemonAttack-v5": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "attack",
+            "blast"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Right+Shoot",
+          "variants": [
+            "right shoot",
+            "right+shoot",
+            "shoot right",
+            "right fire"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Left+Shoot",
+          "variants": [
+            "left shoot",
+            "left+shoot",
+            "shoot left",
+            "left fire"
+          ]
+        }
+      ]
+    },
+    "ALE/MsPacman-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle",
+            "stay"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        }
+      ]
+    },
+    "ALE/Alien-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "flamethrower",
+            "attack"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Shoot",
+          "variants": [
+            "up shoot",
+            "up+shoot",
+            "shoot up"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Shoot",
+          "variants": [
+            "right shoot",
+            "right+shoot",
+            "shoot right"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Shoot",
+          "variants": [
+            "left shoot",
+            "left+shoot",
+            "shoot left"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Shoot",
+          "variants": [
+            "down shoot",
+            "down+shoot",
+            "shoot down"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Shoot",
+          "variants": [
+            "up right shoot",
+            "up+right+shoot"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Shoot",
+          "variants": [
+            "up left shoot",
+            "up+left+shoot"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Shoot",
+          "variants": [
+            "down right shoot",
+            "down+right+shoot"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Shoot",
+          "variants": [
+            "down left shoot",
+            "down+left+shoot"
+          ]
+        }
+      ]
+    },
+    "ALE/RoadRunner-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Speed Up",
+          "variants": [
+            "speed up",
+            "fire",
+            "boost",
+            "accelerate",
+            "sprint"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "jump",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Speed Up",
+          "variants": [
+            "up speed up",
+            "up+speed up",
+            "jump boost"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Speed Up",
+          "variants": [
+            "right speed up",
+            "right+speed up",
+            "right boost"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Speed Up",
+          "variants": [
+            "left speed up",
+            "left+speed up",
+            "left boost"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Speed Up",
+          "variants": [
+            "down speed up",
+            "down+speed up"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Speed Up",
+          "variants": [
+            "up right speed up",
+            "up+right+speed up"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Speed Up",
+          "variants": [
+            "up left speed up",
+            "up+left+speed up"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Speed Up",
+          "variants": [
+            "down right speed up",
+            "down+right+speed up"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Speed Up",
+          "variants": [
+            "down left speed up",
+            "down+left+speed up"
+          ]
+        }
+      ]
+    },
+    "highway-v0": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Idle",
+          "variants": [
+            "noop"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Faster",
+          "variants": [
+            "Speed up"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Slower",
+          "variants": [
+            "brake"
+          ]
+        }
+      ]
+    },
+    "ALE/Tennis-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Swing",
+          "variants": [
+            "swing",
+            "hit",
+            "fire",
+            "serve",
+            "return"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Swing",
+          "variants": [
+            "up swing",
+            "up+swing",
+            "up hit"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Swing",
+          "variants": [
+            "right swing",
+            "right+swing",
+            "right hit"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Swing",
+          "variants": [
+            "left swing",
+            "left+swing",
+            "left hit"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Swing",
+          "variants": [
+            "down swing",
+            "down+swing",
+            "down hit"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Swing",
+          "variants": [
+            "up right swing",
+            "up+right+swing"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Swing",
+          "variants": [
+            "up left swing",
+            "up+left+swing"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Swing",
+          "variants": [
+            "down right swing",
+            "down+right+swing"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Swing",
+          "variants": [
+            "down left swing",
+            "down+left+swing"
+          ]
+        }
+      ]
+    },
+    "ALE/ChopperCommand-v5": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "shot",
+            "attack"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Shoot",
+          "variants": [
+            "up shoot",
+            "up+shoot",
+            "up fire"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Shoot",
+          "variants": [
+            "right shoot",
+            "right+shoot",
+            "right fire"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Shoot",
+          "variants": [
+            "left shoot",
+            "left+shoot",
+            "left fire"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Shoot",
+          "variants": [
+            "down shoot",
+            "down+shoot",
+            "down fire"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Shoot",
+          "variants": [
+            "up right shoot",
+            "up+right+shoot"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Shoot",
+          "variants": [
+            "up left shoot",
+            "up+left+shoot"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Shoot",
+          "variants": [
+            "down right shoot",
+            "down+right+shoot"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Shoot",
+          "variants": [
+            "down left shoot",
+            "down+left+shoot"
+          ]
+        }
+      ],
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "ALE/Berzerk-v5": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "shot",
+            "attack"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Shoot",
+          "variants": [
+            "up shoot",
+            "up+shoot",
+            "up fire"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Shoot",
+          "variants": [
+            "right shoot",
+            "right+shoot",
+            "right fire"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Shoot",
+          "variants": [
+            "left shoot",
+            "left+shoot",
+            "left fire"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Shoot",
+          "variants": [
+            "down shoot",
+            "down+shoot",
+            "down fire"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Shoot",
+          "variants": [
+            "up right shoot",
+            "up+right+shoot"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Shoot",
+          "variants": [
+            "up left shoot",
+            "up+left+shoot"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Shoot",
+          "variants": [
+            "down right shoot",
+            "down+right+shoot"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Shoot",
+          "variants": [
+            "down left shoot",
+            "down+left+shoot"
+          ]
+        }
+      ],
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "ALE/BattleZone-v5": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Fire",
+          "variants": [
+            "fire",
+            "shoot",
+            "missile"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "forward",
+            "move forward",
+            "advance"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "rotate right",
+            "turn right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "rotate left",
+            "turn left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "backward",
+            "reverse",
+            "move back"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "upright",
+            "forward right",
+            "up right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "upleft",
+            "forward left",
+            "up left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "downright",
+            "backward right",
+            "down right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "downleft",
+            "backward left",
+            "down left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Fire",
+          "variants": [
+            "upfire",
+            "forward fire",
+            "fire forward",
+            "up+fire"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Fire",
+          "variants": [
+            "rightfire",
+            "fire right",
+            "right+fire"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Fire",
+          "variants": [
+            "leftfire",
+            "fire left",
+            "left+fire"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Fire",
+          "variants": [
+            "downfire",
+            "fire backward",
+            "down+fire"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Fire",
+          "variants": [
+            "uprightfire",
+            "up right fire",
+            "up+right+fire"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Fire",
+          "variants": [
+            "upleftfire",
+            "up left fire",
+            "up+left+fire"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Fire",
+          "variants": [
+            "downrightfire",
+            "down right fire",
+            "down+right+fire"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Fire",
+          "variants": [
+            "downleftfire",
+            "down left fire",
+            "down+left+fire"
+          ]
+        }
+      ]
+    },
+    "ALE/Riverraid-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Fire",
+          "variants": [
+            "fire",
+            "shoot",
+            "missile"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Accelerate",
+          "variants": [
+            "accelerate",
+            "speed up",
+            "go faster",
+            "throttle up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Decelerate",
+          "variants": [
+            "decelerate",
+            "slow down",
+            "brake",
+            "throttle down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Accelerate+Right",
+          "variants": [
+            "accelerate right",
+            "speed up right",
+            "accelerate+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Accelerate+Left",
+          "variants": [
+            "accelerate left",
+            "speed up left",
+            "accelerate+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Decelerate+Right",
+          "variants": [
+            "decelerate right",
+            "slow right",
+            "decelerate+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Decelerate+Left",
+          "variants": [
+            "decelerate left",
+            "slow left",
+            "decelerate+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Accelerate+Fire",
+          "variants": [
+            "accelerate fire",
+            "speed fire",
+            "accelerate+fire"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Fire",
+          "variants": [
+            "rightfire",
+            "right fire",
+            "right+fire"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Fire",
+          "variants": [
+            "leftfire",
+            "left fire",
+            "left+fire"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Decelerate+Fire",
+          "variants": [
+            "decelerate fire",
+            "slow fire",
+            "decelerate+fire"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Accelerate+Right+Fire",
+          "variants": [
+            "accelerate right fire",
+            "accelerate+right+fire"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Accelerate+Left+Fire",
+          "variants": [
+            "accelerate left fire",
+            "accelerate+left+fire"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Decelerate+Right+Fire",
+          "variants": [
+            "decelerate right fire",
+            "decelerate+right+fire"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Decelerate+Left+Fire",
+          "variants": [
+            "decelerate left fire",
+            "decelerate+left+fire"
+          ]
+        }
+      ]
+    },
+    "ALE/Turmoil-v5": {
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Fire",
+          "variants": [
+            "fire",
+            "shoot",
+            "blast"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "upright",
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "upleft",
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "downright",
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "downleft",
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Right+Fire",
+          "variants": [
+            "rightfire",
+            "right fire",
+            "right+fire",
+            "right shoot"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Left+Fire",
+          "variants": [
+            "leftfire",
+            "left fire",
+            "left+fire",
+            "left shoot"
+          ]
+        }
+      ]
+    },
+    "ALE/Trondead-v5": {
+      "simple_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Fire",
+          "variants": [
+            "fire",
+            "shoot",
+            "attack"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Up+Right",
+          "variants": [
+            "upright",
+            "up right",
+            "up+right"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Up+Left",
+          "variants": [
+            "upleft",
+            "up left",
+            "up+left"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Down+Right",
+          "variants": [
+            "downright",
+            "down right",
+            "down+right"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Down+Left",
+          "variants": [
+            "downleft",
+            "down left",
+            "down+left"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Up+Fire",
+          "variants": [
+            "upfire",
+            "up fire",
+            "up+fire"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Right+Fire",
+          "variants": [
+            "rightfire",
+            "right fire",
+            "right+fire"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Left+Fire",
+          "variants": [
+            "leftfire",
+            "left fire",
+            "left+fire"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Down+Fire",
+          "variants": [
+            "downfire",
+            "down fire",
+            "down+fire"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Up+Right+Fire",
+          "variants": [
+            "uprightfire",
+            "up right fire",
+            "up+right+fire"
+          ]
+        },
+        {
+          "id": 15,
+          "canonical": "Up+Left+Fire",
+          "variants": [
+            "upleftfire",
+            "up left fire",
+            "up+left+fire"
+          ]
+        },
+        {
+          "id": 16,
+          "canonical": "Down+Right+Fire",
+          "variants": [
+            "downrightfire",
+            "down right fire",
+            "down+right+fire"
+          ]
+        },
+        {
+          "id": 17,
+          "canonical": "Down+Left+Fire",
+          "variants": [
+            "downleftfire",
+            "down left fire",
+            "down+left+fire"
+          ]
+        }
+      ]
+    },
+    "aFlappyBird-v1": {
+      "simple_ids": [
+        0,
+        1
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Flap",
+          "variants": [
+            "fly",
+            "up",
+            "go up"
+          ]
+        }
+      ]
+    },
+    "tetris_gymnasium/Tetris": {
+      "simple_ids": [
+        0,
+        1,
+        3,
+        5,
+        7
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Clockwise",
+          "variants": [
+            "rotate clockwise",
+            "rotate"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "Counter-clockwise",
+          "variants": [
+            "rotate counter-clockwise",
+            "counterclockwise"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Drop",
+          "variants": [
+            "drop"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Swap",
+          "variants": [
+            "exchange"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        }
+      ]
+    },
+    "procgen_:procgen-bigfish-v0": {
+      "simple_ids": [
+        1,
+        3,
+        4,
+        5,
+        7
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left+Down",
+          "variants": [
+            "left down",
+            "left+down"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Left+Up",
+          "variants": [
+            "left up",
+            "left+up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Right+Down",
+          "variants": [
+            "right down",
+            "right+down"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Right+Up",
+          "variants": [
+            "right up",
+            "right+up"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "D",
+          "variants": [
+            "d"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "A",
+          "variants": [
+            "a"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "W",
+          "variants": [
+            "w"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "S",
+          "variants": [
+            "s"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Q",
+          "variants": [
+            "q"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "E",
+          "variants": [
+            "e"
+          ]
+        }
+      ]
+    },
+    "procgen_:procgen-bossfight-v0": {
+      "simple_ids": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left+Down",
+          "variants": [
+            "left down",
+            "left+down"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Left+Up",
+          "variants": [
+            "left up",
+            "left+up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Right+Down",
+          "variants": [
+            "right down",
+            "right+down"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Right+Up",
+          "variants": [
+            "right up",
+            "right+up"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "torpedo",
+            "attack"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "A",
+          "variants": [
+            "a"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "W",
+          "variants": [
+            "w"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "S",
+          "variants": [
+            "s"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Q",
+          "variants": [
+            "q"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "E",
+          "variants": [
+            "e"
+          ]
+        }
+      ]
+    },
+    "procgen_:procgen-caveflyer-v0": {
+      "simple_ids": [
+        1,
+        3,
+        4,
+        5,
+        7
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left+Down",
+          "variants": [
+            "left down",
+            "left+down"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Left+Up",
+          "variants": [
+            "left up",
+            "left+up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Right+Down",
+          "variants": [
+            "right down",
+            "right+down"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Right+Up",
+          "variants": [
+            "right up",
+            "right+up"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "torpedo",
+            "attack"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "A",
+          "variants": [
+            "a"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "W",
+          "variants": [
+            "w"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "S",
+          "variants": [
+            "s"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Q",
+          "variants": [
+            "q"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "E",
+          "variants": [
+            "e"
+          ]
+        }
+      ]
+    },
+    "procgen_:procgen-dodgeball-v0": {
+      "simple_ids": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left+Down",
+          "variants": [
+            "left down",
+            "left+down"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Left+Up",
+          "variants": [
+            "left up",
+            "left+up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Right+Down",
+          "variants": [
+            "right down",
+            "right+down"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Right+Up",
+          "variants": [
+            "right up",
+            "right+up"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Shoot",
+          "variants": [
+            "shoot",
+            "fire",
+            "torpedo",
+            "attack"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "A",
+          "variants": [
+            "a"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "W",
+          "variants": [
+            "w"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "S",
+          "variants": [
+            "s"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Q",
+          "variants": [
+            "q"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "E",
+          "variants": [
+            "e"
+          ]
+        }
+      ]
+    },
+    "procgen_:procgen-heist-v0": {
+      "simple_ids": [
+        1,
+        3,
+        4,
+        5,
+        7
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left+Down",
+          "variants": [
+            "left down",
+            "left+down"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Left+Up",
+          "variants": [
+            "left up",
+            "left+up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Right+Down",
+          "variants": [
+            "right down",
+            "right+down"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Right+Up",
+          "variants": [
+            "right up",
+            "right+up"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "D",
+          "variants": [
+            "d"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "A",
+          "variants": [
+            "a"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "W",
+          "variants": [
+            "w"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "S",
+          "variants": [
+            "s"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Q",
+          "variants": [
+            "q"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "E",
+          "variants": [
+            "e"
+          ]
+        }
+      ]
+    },
+    "procgen_:procgen-leaper-v0": {
+      "simple_ids": [
+        1,
+        3,
+        4,
+        5,
+        7
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left+Down",
+          "variants": [
+            "left down",
+            "left+down"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Left+Up",
+          "variants": [
+            "left up",
+            "left+up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Right+Down",
+          "variants": [
+            "right down",
+            "right+down"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Right+Up",
+          "variants": [
+            "right up",
+            "right+up"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "D",
+          "variants": [
+            "d"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "A",
+          "variants": [
+            "a"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "W",
+          "variants": [
+            "w"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "S",
+          "variants": [
+            "s"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Q",
+          "variants": [
+            "q"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "E",
+          "variants": [
+            "e"
+          ]
+        }
+      ]
+    },
+    "procgen_:procgen-ninja-v0": {
+      "simple_ids": [
+        1,
+        3,
+        4,
+        5,
+        7
+      ],
+      "actions": [
+        {
+          "id": 0,
+          "canonical": "Left+Down",
+          "variants": [
+            "left down",
+            "left+down"
+          ]
+        },
+        {
+          "id": 1,
+          "canonical": "Left",
+          "variants": [
+            "left",
+            "move left",
+            "go left"
+          ]
+        },
+        {
+          "id": 2,
+          "canonical": "Left+Up",
+          "variants": [
+            "left up",
+            "left+up"
+          ]
+        },
+        {
+          "id": 3,
+          "canonical": "Down",
+          "variants": [
+            "down",
+            "move down",
+            "go down"
+          ]
+        },
+        {
+          "id": 4,
+          "canonical": "NOOP",
+          "variants": [
+            "noop",
+            "no-op",
+            "wait",
+            "do nothing",
+            "idle"
+          ]
+        },
+        {
+          "id": 5,
+          "canonical": "Up",
+          "variants": [
+            "up",
+            "move up",
+            "go up"
+          ]
+        },
+        {
+          "id": 6,
+          "canonical": "Right+Down",
+          "variants": [
+            "right down",
+            "right+down"
+          ]
+        },
+        {
+          "id": 7,
+          "canonical": "Right",
+          "variants": [
+            "right",
+            "move right",
+            "go right"
+          ]
+        },
+        {
+          "id": 8,
+          "canonical": "Right+Up",
+          "variants": [
+            "right up",
+            "right+up"
+          ]
+        },
+        {
+          "id": 9,
+          "canonical": "Shoot Front",
+          "variants": [
+            "shoot front",
+            "fire front",
+            "torpedo front",
+            "attack front"
+          ]
+        },
+        {
+          "id": 10,
+          "canonical": "Shoot Up-front",
+          "variants": [
+            "shoot up-front",
+            "fire up-front",
+            "torpedo up-front",
+            "attack up-front"
+          ]
+        },
+        {
+          "id": 11,
+          "canonical": "Shoot Up",
+          "variants": [
+            "shoot up",
+            "fire up",
+            "torpedo up",
+            "attack up"
+          ]
+        },
+        {
+          "id": 12,
+          "canonical": "Dump",
+          "variants": [
+            "dump",
+            "place"
+          ]
+        },
+        {
+          "id": 13,
+          "canonical": "Shoot Front2",
+          "variants": [
+            "shoot front2",
+            "fire front2",
+            "torpedo front2",
+            "attack front2"
+          ]
+        },
+        {
+          "id": 14,
+          "canonical": "Shoot Front3",
+          "variants": [
+            "shoot front3",
+            "fire front3",
+            "torpedo front3",
+            "attack front3"
+          ]
+        }
+      ]
+    }
+  },
+  "notes": [
+    "canonical must EXACTLY match the value in PREDEFINED_ACTION_MEANINGS for that game",
+    "All canonical names use concise English — no Chinese, no verbose descriptions",
+    "ALE games: semantic names from human perspective (e.g. 'Accelerate' not 'FIRE' for Enduro)",
+    "simple_ids: action IDs shown in simple mode (matches ACTION_SIMPLE_IDS in env_wrapper.py)",
+    "variants: alternate names the AI might output (case-insensitive matching)",
+    "Matching is done after normalization: lowercase, remove spaces/punctuation"
+  ]
+}

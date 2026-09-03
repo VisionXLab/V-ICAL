@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video-CL</title>
+<link rel="stylesheet" href="/static/css/style.css?v=20260824-media-fit">
+</head>
+<body>
+
+<!-- ========== Header ========== -->
+<div id="header">
+  <h1>Video-CL</h1>
+  <div class="tab-group">
+    <button class="tab-btn active" data-mode="human" onclick="switchMode('human')">Human Interaction</button>
+    <button class="tab-btn" data-mode="ai" onclick="switchMode('ai')">Machine (AI) Interaction</button>
+    <button class="tab-btn" data-mode="crossval" onclick="switchMode('crossval')">Human Cross-Validation</button>
+  </div>
+</div>
+
+<!-- ========== Main 3-column layout ========== -->
+<div id="main">
+
+  <!-- Left Panel: Settings -->
+  <div id="left-panel">
+    <section id="crossval-level-selector" class="hidden" aria-label="Cross-validation 选关">
+      <div class="cv-level-heading">
+        <span class="cv-level-kicker">HUMAN EVAL ROUTE</span>
+        <h2>选择测试</h2>
+        <p>刷新页面不会自动开局。选择一项后再观看演示并开始评测。</p>
+      </div>
+      <button id="cv-level-continue" class="primary" type="button" onclick="crossvalNextTest()">
+        继续下一个未完成
+      </button>
+      <div class="cv-level-progress" aria-live="polite">
+        <span id="cv-level-progress-text">正在读取队列…</span>
+        <div class="cv-level-progress-track"><span id="cv-level-progress-fill"></span></div>
+      </div>
+      <div id="cv-level-list" class="cv-level-list"></div>
+    </section>
+
+    <div id="standard-left-content" class="left-panel-stack">
+    <div class="panel-section">
+      <h3>Game Settings</h3>
+      <!-- AI Config Save/Load (shown only in AI mode) -->
+      <div id="config-actions" style="display:none; gap:6px; margin-bottom:8px;">
+        <button onclick="saveAIConfig()" style="flex:1; font-size:12px;">Save Config</button>
+        <button onclick="showLoadConfigDialog()" style="flex:1; font-size:12px;">Load Config</button>
+      </div>
+      <div class="field">
+        <label>Game</label>
+        <div style="display:flex; gap:4px; align-items:center;">
+          <select id="game-select" style="flex:1;"></select>
+          <button id="btn-blacklist" onclick="toggleBlacklist()" style="font-size:11px; color:#ef5350; border:1px solid #ef5350; background:none; padding:2px 8px; border-radius:3px; cursor:pointer; white-space:nowrap;">Blacklist</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>Seed</label>
+        <div class="hint">Random seed for reproducibility. Human default=41, AI default=42. Empty = random each time.</div>
+        <input type="number" id="cfg-seed" placeholder="None">
+      </div>
+
+      <!-- ALE-specific -->
+      <div id="cfg-ale" class="hidden">
+        <div class="field">
+          <label>Frameskip <small style="color:#888;font-weight:normal">（游戏自带）</small></label>
+          <div class="hint">Number of frames the same action is held before the next decision. Higher = faster but less precise. Default 4.</div>
+          <input type="number" id="cfg-frameskip" value="4" min="1" max="1000">
+        </div>
+        <div class="field">
+          <label><input type="checkbox" id="cfg-auto-respawn" checked style="width:auto"> Auto Respawn</label>
+          <div class="hint">死后自动复活（自动按 FIRE 继续下一条命），仅对 SpaceInvaders、Seaquest 等需要手动复活的游戏有效。</div>
+        </div>
+        <div class="field">
+          <label>Initial Lives</label>
+          <div class="hint">Override the default number of lives. Empty = use game default (usually 3-5).</div>
+          <input type="number" id="cfg-initial-lives" placeholder="None" min="1">
+        </div>
+        <div class="field">
+          <label>Initial RAM Overrides</label>
+          <div class="hint">Set specific RAM values at game start. Format: <code>addr=value</code>, one per line. E.g. <code>114=5</code></div>
+          <textarea id="cfg-initial-ram" placeholder="114=5&#10;62=0" rows="3" style="width:100%;font-family:monospace;font-size:12px;box-sizing:border-box;resize:vertical"></textarea>
+        </div>
+        <div class="field">
+          <label><input type="checkbox" id="cfg-end-on-life-loss" style="width:auto"> End on Life Loss</label>
+          <div class="hint">End the game immediately when a life is lost. Useful for stricter evaluation.</div>
+        </div>
+        <div class="field">
+          <label>Skip Initial Steps</label>
+          <div class="hint">Auto-execute NOOP actions at game start to skip loading/idle screens. 0 = no skip.</div>
+          <input type="number" id="cfg-skip-initial-steps" min="0">
+        </div>
+        <div class="field">
+          <label>Action Set</label>
+          <div class="hint">Simple = core actions only (easier for AI). Full = all available actions including combos.</div>
+          <select id="cfg-action-set">
+            <option value="simple" selected>Simple</option>
+            <option value="full">Full</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Game Mode</label>
+          <div class="hint">ALE game mode variant. Empty = default (mode 0). E.g. Frostbite: 0 or 2.</div>
+          <input type="number" id="cfg-mode" placeholder="Default" min="0">
+        </div>
+        <div class="field">
+          <label>Difficulty</label>
+          <div class="hint">ALE difficulty level. Empty = default (0). E.g. Seaquest: 0 or 1.</div>
+          <input type="number" id="cfg-difficulty" placeholder="Default" min="0">
+        </div>
+      </div>
+
+      <!-- CustomBreakout-specific -->
+      <div id="cfg-custom-breakout" class="hidden">
+        <div class="field">
+          <label>Paddle Width</label>
+          <div class="hint">Width of the paddle in pixels. Larger = easier to catch the ball. Range 10-40, default 20.</div>
+          <input type="number" id="cfg-paddle-width" value="20" min="10" max="40">
+        </div>
+        <div class="field">
+          <label>Ball Speed</label>
+          <div class="hint">Speed of the ball per frame. Higher = harder to react. Range 1.0-5.0, default 2.0.</div>
+          <input type="number" id="cfg-ball-speed" value="2.0" min="1" max="5" step="0.1">
+        </div>
+        <div class="field">
+          <label>Brick Rows</label>
+          <div class="hint">Number of brick rows to break. More rows = longer game. Range 3-12, default 6.</div>
+          <input type="number" id="cfg-brick-rows" value="6" min="3" max="12">
+        </div>
+        <div class="field">
+          <label>Brick Cols</label>
+          <div class="hint">Number of brick columns. More columns = wider brick wall. Range 5-15, default 10.</div>
+          <input type="number" id="cfg-brick-cols" value="10" min="5" max="15">
+        </div>
+        <div class="field">
+          <label>Brick Top Offset</label>
+          <div class="hint">Distance from top of screen to the first brick row (pixels). Higher = more room for ball. Range 5-50, default 10.</div>
+          <input type="number" id="cfg-brick-offset" value="10" min="5" max="50">
+        </div>
+        <div class="field">
+          <label>Launch Angle Mode</label>
+          <div class="hint">How the ball launches: Random = random angle each time, Fixed = always 0.3 rad, Custom Fixed = specify your own angle.</div>
+          <select id="cfg-launch-angle-mode">
+            <option value="random">Random</option>
+            <option value="fixed">Fixed (0.3 rad)</option>
+            <option value="fixed_angle">Custom Fixed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Frameskip <small style="color:#888;font-weight:normal">（游戏自带）</small></label>
+          <div class="hint">Frames per action step. Higher = ball moves further per decision. Range 1-8, default 4.</div>
+          <input type="number" id="cfg-cb-frameskip" value="4" min="1" max="8">
+        </div>
+        <div class="field">
+          <label>Initial Lives</label>
+          <div class="hint">Number of lives before game over. Range 1-99, default 5.</div>
+          <input type="number" id="cfg-cb-lives" value="5" min="1" max="99">
+        </div>
+        <div class="field">
+          <label><input type="checkbox" id="cfg-cb-end-on-life-loss" style="width:auto"> End on Life Loss</label>
+          <div class="hint">End the game immediately when a life is lost.</div>
+        </div>
+        <div class="field">
+          <label>Skip Initial Steps</label>
+          <div class="hint">Auto-execute NOOP actions at game start to skip idle screens. 0 = no skip.</div>
+          <input type="number" id="cfg-cb-skip-initial-steps" min="0">
+        </div>
+      </div>
+
+      <!-- MiniGrid -->
+      <div id="cfg-minigrid" class="hidden">
+        <div class="field">
+          <label><input type="checkbox" id="cfg-partial-obs" checked style="width:auto"> Partial Observation (Fog of War)</label>
+          <div class="hint">When checked, only tiles visible to the agent are shown; everything else is blacked out. Uncheck for full map view.</div>
+        </div>
+      </div>
+
+      <!-- Custom LavaCrossing -->
+      <div id="cfg-custom-lava-crossing" class="hidden">
+        <div class="field">
+          <label>Grid Size</label>
+          <div class="hint">Grid size (must be odd). Larger = harder. Range 5-21, default 11.</div>
+          <input type="number" id="cfg-lc-size" value="11" min="5" max="21" step="2">
+        </div>
+        <div class="field">
+          <label>Num Crossings</label>
+          <div class="hint">Number of lava rivers to cross. More = harder. Range 1-10, default 5.</div>
+          <input type="number" id="cfg-lc-crossings" value="5" min="1" max="10">
+        </div>
+      </div>
+
+      <!-- Custom MultiRoom -->
+      <div id="cfg-custom-multiroom" class="hidden">
+        <div class="field">
+          <label>Grid Size</label>
+          <div class="hint">Total grid size. Larger = more space for rooms. Range 15-50, default 25.</div>
+          <input type="number" id="cfg-mr-grid-size" value="25" min="15" max="50">
+        </div>
+        <div class="field">
+          <label>Num Rooms</label>
+          <div class="hint">Number of rooms to traverse. Range 2-10, default 6.</div>
+          <input type="number" id="cfg-mr-rooms" value="6" min="2" max="10">
+        </div>
+        <div class="field">
+          <label>Max Room Size</label>
+          <div class="hint">Maximum size of each room. Range 4-15, default 10.</div>
+          <input type="number" id="cfg-mr-room-size" value="10" min="4" max="15">
+        </div>
+      </div>
+
+      <!-- Custom UnlockPickup -->
+      <div id="cfg-custom-unlock-pickup" class="hidden">
+        <div class="field">
+          <label>Room Size</label>
+          <div class="hint">Size of each room. Larger = more space. Range 4-12, default 6.</div>
+          <input type="number" id="cfg-up-room-size" value="6" min="4" max="12">
+        </div>
+        <div class="field">
+          <label>Room Rows</label>
+          <div class="hint">Number of room rows. Range 1-3, default 1.</div>
+          <input type="number" id="cfg-up-rows" value="1" min="1" max="3">
+        </div>
+        <div class="field">
+          <label>Room Cols</label>
+          <div class="hint">Number of room columns (min 2 for the puzzle). Range 2-4, default 2.</div>
+          <input type="number" id="cfg-up-cols" value="2" min="2" max="4">
+        </div>
+      </div>
+
+      <!-- FrozenLake -->
+      <div id="cfg-frozenlake" class="hidden">
+        <div class="field">
+          <label><input type="checkbox" id="cfg-slippery" style="width:auto"> Is Slippery</label>
+          <div class="hint">When checked, the ice is slippery: your action has only 1/3 chance of going in the intended direction. Uncheck for deterministic movement.</div>
+        </div>
+      </div>
+
+      <!-- highway -->
+      <div id="cfg-highway" class="hidden">
+        <div class="field">
+          <label>Lanes</label>
+          <input type="number" id="cfg-lanes-count" value="4">
+        </div>
+        <div class="field">
+          <label>Density</label>
+          <input type="number" id="cfg-vehicles-density" value="2">
+        </div>
+      </div>
+
+      <div id="cfg-procgen" class="hidden">
+        <div class="field">
+          <label>Skip Initial Steps</label>
+          <div class="hint">Auto-execute NOOP actions at game start to skip idle screens. 0 = no skip.</div>
+          <input type="number" id="cfg-procgen-skip-initial-steps" min="0">
+        </div>
+      </div>
+
+      <!-- Common settings -->
+      <div class="field" style="margin-top:8px; border-top:1px solid #333; padding-top:8px;">
+        <label>Max Steps</label>
+        <div class="hint">Maximum number of steps before game ends (truncated). Empty = no limit.</div>
+        <input type="number" id="cfg-max-steps" min="1" placeholder="None">
+      </div>
+      <div class="field">
+        <label>Frame Skip <small style="color:#888;font-weight:normal">（外层叠加）</small></label>
+        <div class="hint">Execute each action for N game frames. Speeds up slow games. Default 1.</div>
+        <input type="number" id="cfg-repeat" value="1" min="1" max="2000">
+        <div id="cfg-repeat-effect" class="hint" style="color:#aaa; margin-top:3px;"></div>
+      </div>
+      <div class="field">
+        <label><input type="checkbox" id="cfg-noop-fill" style="width:auto"> NOOP Fill</label>
+        <div class="hint">In Frame Skip mode: execute the action only N times, fill remaining frames with NOOP (do nothing) instead of repeating the action.</div>
+      </div>
+      <div class="field" id="cfg-action-repeat-row" class="hidden">
+        <label>Action Steps</label>
+        <div class="hint">How many frames to actually execute the action (rest are NOOP). Must be &le; Frame Skip.</div>
+        <input type="number" id="cfg-action-repeat" value="1" min="1">
+      </div>
+      <div class="field">
+        <label>Pre-score</label>
+        <input type="number" id="cfg-pre-score" value="0">
+      </div>
+    </div>
+
+    <!-- AI Config (shown only in AI mode) -->
+    <div id="ai-config-panel" class="panel-section hidden">
+      <h3>AI Configuration</h3>
+      <div class="field">
+        <label>API Key</label>
+        <input type="password" id="ai-api-key" placeholder="sk-...">
+      </div>
+      <div class="field">
+        <label>Base URL</label>
+        <input type="text" id="ai-base-url" value="https://api.openai.com/v1">
+      </div>
+      <div class="field">
+        <label>Model</label>
+        <input type="text" id="ai-model" value="gpt-4o">
+      </div>
+      <div class="field">
+        <label>Max Tokens</label>
+        <input type="number" id="ai-max-tokens" value="50000" min="100" max="100000" step="100">
+      </div>
+      <div class="field">
+        <label>Temperature</label>
+        <input type="number" id="ai-temperature" value="0.7" min="0" max="2" step="0.1">
+      </div>
+      <div class="field">
+        <label>Context from saved operations</label>
+        <div style="display:flex; gap:4px;">
+          <select id="ai-context-folder" style="flex:1;"><option value="">-- select --</option></select>
+          <button onclick="loadContextFolder()" style="font-size:11px; white-space:nowrap;">Load</button>
+        </div>
+      </div>
+      <!-- Video preview and FPS adjustment (shown after loading when video_mode=true) -->
+      <div id="context-video-preview-section" class="hidden">
+        <div class="field">
+          <video id="context-video-preview" controls style="width:100%; max-height:250px;"></video>
+        </div>
+        <div class="field">
+          <label>Adjust FPS</label>
+          <input type="number" id="context-video-fps" value="2" min="0.5" max="10" step="0.5" style="width:60px;">
+          <button onclick="regenerateContextVideo()" style="margin-left:4px; font-size:11px;">Regenerate from frames</button>
+          <span id="context-video-status" style="font-size:11px; color:#aaa; margin-left:4px;"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label>Or upload context files</label>
+        <input type="file" id="ai-context-files" multiple accept="image/*,.zip,video/*">
+        <button onclick="uploadContextFiles()" style="margin-top:4px; font-size:11px;">Upload</button>
+        <span id="context-count" style="font-size:11px; color:#aaa;"></span>
+      </div>
+      <!-- Context list -->
+      <div id="context-list"></div>
+      <div class="field">
+        <label>Video Description</label>
+        <textarea id="ai-video-desc" rows="2" placeholder="These frames show example gameplay to help you understand the game."></textarea>
+      </div>
+      <div class="field">
+        <label>Game Rules</label>
+        <textarea id="ai-game-rules" rows="3" placeholder="Optional: describe game rules to help the AI"></textarea>
+      </div>
+      <div class="field">
+        <label>AI Mode (what AI sees & outputs)</label>
+        <select id="ai-mode" onchange="updateAIModeFields()">
+          <option value="original-numeric">Original frames → Numeric actions (0, 1, 2...)</option>
+          <option value="original-nl">Original frames → Natural language actions (FIRE, left...)</option>
+          <option value="subbed-numeric">Numeric subtitles (Action 0, 1...) → Numeric actions</option>
+          <option value="subbed-nl" selected>Natural language subtitles (FIRE, left...) → Natural language actions</option>
+        </select>
+        <small style="color:#888; font-size:11px; display:block; margin-top:2px;">Controls both what frames AI sees and how AI outputs actions</small>
+        <!-- Hidden fields to maintain compatibility with backend -->
+        <input type="hidden" id="ai-action-mode" value="natural_language">
+        <input type="hidden" id="ai-frame-source" value="subbed_nl">
+      </div>
+      <div class="field">
+        <label>Video Mode (API format)</label>
+        <input type="checkbox" id="ai-video-mode">
+        <small style="color:#888; font-size:11px; display:block; margin-top:2px;">Send frames as MP4 video to API instead of image sequence (for Gemini video API)</small>
+      </div>
+      <div class="field">
+        <label><input type="checkbox" id="ai-hide-reward" checked style="width:auto"> Hide Reward</label>
+        <div class="hint">Hide reward/cumulative reward from AI prompts. Prevents AI from gaming the reward signal.</div>
+      </div>
+      <div class="field">
+        <label>Frame Window</label>
+        <div class="hint">0 = full history (send all frames), N > 0 = sliding window (last N rounds)</div>
+        <input type="number" id="ai-frame-window" value="0" min="0" step="1">
+      </div>
+      <div class="field">
+        <label>Current Game Tags</label>
+        <div id="ai-tag-display" style="font-size:12px; color:#aaa; padding:4px 0;">Select a game</div>
+      </div>
+    </div>
+
+    <!-- Control buttons -->
+    <div style="display:flex; gap:6px; flex-wrap:wrap;">
+      <button id="btn-start" class="primary" onclick="startGame()" style="flex:1;">Start Game</button>
+      <button id="btn-reset" onclick="resetGame()" disabled style="flex:1;">Reset</button>
+    </div>
+    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; align-items:center;">
+      <button id="btn-seq" onclick="openSeqManager()" style="flex:0 0 auto; font-size:12px;">Sequence</button>
+      <span id="seq-loaded-badge" style="font-size:11px; color:#4fc3f7; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:none;"></span>
+    </div>
+    <div id="human-extra-btns" style="display:flex; gap:6px; flex-wrap:wrap; margin-top:6px;">
+      <button id="btn-undo" class="warning" onclick="undoAction()" disabled style="flex:1;">Undo</button>
+      <button id="btn-save" class="success" onclick="saveSession()" disabled style="flex:1;">Save</button>
+      <button id="btn-export-optimal" class="primary hidden" onclick="exportOptimalSolution()" style="flex:1; font-size:11px;">Export Optimal</button>
+    </div>
+    </div>
+  </div>
+
+  <!-- Center Panel: Frame Viewer + Controls -->
+  <div id="center-panel">
+    <!-- Cross-validation: empty state (shown only in crossval mode before config loaded) -->
+    <div id="crossval-empty" class="hidden">
+      <div class="cv-empty-card">
+        <h2>Human Cross-Validation</h2>
+        <p>请从左侧选择测试。刷新页面不会自动加载或启动任何游戏。</p>
+        <ol class="cv-steps">
+          <li>在左侧选择指定游戏与 AI 配置</li>
+          <li>观看演示视频 + 阅读规则</li>
+          <li>开始游戏</li>
+        </ol>
+        <button id="cv-btn-next-test" class="primary" onclick="crossvalNextTest()">继续下一个未完成</button>
+      </div>
+    </div>
+
+    <!-- Cross-validation: briefing state (single video player with segment switcher) -->
+    <div id="crossval-briefing" class="hidden">
+      <div class="cv-briefing-header">
+        <span id="cv-briefing-config-name" class="cv-pill">—</span>
+        <span class="cv-briefing-hint">观看所有演示片段后将解锁开始按钮</span>
+      </div>
+
+      <!-- 段切换按钮行 1 2 3 4 + 当前段标签 -->
+      <div class="cv-segment-bar">
+        <div id="cv-segment-tabs" class="cv-segment-tabs"></div>
+        <span id="cv-segment-current-label" class="cv-segment-label">—</span>
+      </div>
+
+      <div class="cv-video-wrap">
+        <video id="cv-demo-video" controls autoplay muted></video>
+        <!-- 非中断式 toast：自动跳转下一段时显示 -->
+        <div id="cv-segment-toast" class="cv-segment-toast hidden">已自动播放下一段</div>
+      </div>
+
+      <!-- 上一段 / 下一段 -->
+      <div class="cv-segment-nav">
+        <button id="cv-btn-prev-seg" onclick="crossvalPrevSegment()">← 上一段</button>
+        <span id="cv-segment-progress" class="cv-segment-progress">0 / 0</span>
+        <button id="cv-btn-next-seg" onclick="crossvalNextSegment()">下一段 →</button>
+      </div>
+
+      <div class="cv-briefing-actions">
+        <button id="cv-btn-rewatch" onclick="crossvalRewatchDemo()">↻ Re-watch Current</button>
+        <button id="cv-btn-start-play" class="success" onclick="crossvalStartPlaying()">Start Playing →</button>
+      </div>
+      <div id="cv-briefing-watch-status" class="cv-briefing-watch-status">建议看完所有片段以贴近 AI 视角,但不强制</div>
+    </div>
+
+    <!-- Cross-validation: re-watch overlay (during play) -->
+    <div id="crossval-rewatch-overlay" class="hidden">
+      <div class="cv-rewatch-modal">
+        <div class="cv-rewatch-header">
+          <h3>Demo Video</h3>
+          <button onclick="crossvalCloseRewatch()">✕</button>
+        </div>
+        <video id="cv-rewatch-video" controls></video>
+      </div>
+    </div>
+
+    <div id="frame-container">
+      <div id="no-game-msg">Select a game and click Start Game</div>
+      <img id="game-frame" class="hidden" alt="Game Frame">
+    </div>
+
+    <!-- Frame player -->
+    <div id="progress-bar-container">
+      <button onclick="goFirst()" title="First frame" style="font-size:11px; padding:3px 6px;">|&lt;</button>
+      <button onclick="goPrev()" title="Previous frame" style="font-size:11px; padding:3px 6px;">&lt;</button>
+      <input type="range" id="progress-bar" min="0" max="0" value="0" oninput="onProgressChange(this.value)">
+      <button onclick="goNext()" title="Next frame" style="font-size:11px; padding:3px 6px;">&gt;</button>
+      <button id="live-btn" onclick="goLive()" title="Jump to latest frame" style="font-size:11px; padding:3px 8px;">&gt;|</button>
+      <span id="progress-label" style="font-size:12px; color:#aaa; min-width:60px;">0 / 0</span>
+    </div>
+
+    <!-- Action controls -->
+    <div id="action-controls">
+      <!-- Human controls -->
+      <div id="human-controls">
+        <div class="toggle-switch">
+          <span>Console</span>
+          <input type="checkbox" id="toggle-button-mode" onchange="toggleControlMode()">
+          <span>Button</span>
+        </div>
+        <div id="console-input-area">
+          <input type="text" id="action-input" placeholder="Action # or 'r' to reset" onkeydown="if(event.key==='Enter')sendConsoleAction()">
+          <button onclick="sendConsoleAction()">Send</button>
+        </div>
+        <div id="button-area" class="hidden"></div>
+      </div>
+
+      <!-- AI controls (shown in AI mode) -->
+      <div id="ai-controls" class="hidden">
+        <div id="ai-control-area" style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button id="ai-btn-start" class="success" onclick="aiStart()" style="flex:1;">Start AI</button>
+          <button id="ai-btn-save" class="success" onclick="saveSession()" disabled style="flex:1;">Save</button>
+          <button id="ai-btn-chat" onclick="toggleChatView()" title="Show AI conversation log" style="flex:1;">Chat Log</button>
+        </div>
+      </div>
+
+      <!-- Cross-Validation extra controls (shown when playing in crossval mode) -->
+      <div id="crossval-play-controls" class="hidden">
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button id="cv-btn-rewatch-run" onclick="crossvalRewatchDemo()" style="flex:1;">↻ Re-watch Demo</button>
+          <button id="cv-btn-end-run" class="warning" onclick="crossvalEndAndReveal()" style="flex:1;">End Test</button>
+          <button id="cv-btn-next-after-run" class="success hidden" onclick="crossvalNextTest()" style="flex:1;">下一个测试</button>
+          <button id="cv-btn-abort-run" class="danger" onclick="crossvalAbort()" style="flex:0 0 auto;">Abort</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Panel: State Info -->
+  <div id="right-panel">
+    <div class="panel-section" id="state-info">
+      <h3>Game State</h3>
+      <div class="info-row"><span class="info-label">Step</span><span class="info-value" id="info-step">-</span></div>
+      <div class="info-row"><span class="info-label">Reward</span><span class="info-value" id="info-reward">-</span></div>
+      <div class="info-row"><span class="info-label">Cumulative</span><span class="info-value" id="info-cumulative">-</span></div>
+      <div class="info-row"><span class="info-label">Score</span><span class="info-value" id="info-score" title="只对白名单游戏显示（src/utils/score_config.py）">-</span></div>
+      <div class="info-row"><span class="info-label">Status</span><span class="info-value" id="info-status">-</span></div>
+      <div class="info-row"><span class="info-label">Ending</span><span class="info-value" id="info-ending">-</span></div>
+      <div class="info-row"><span class="info-label">Pass</span><span class="info-value" id="info-pass">-</span></div>
+      <div class="info-row"><span class="info-label">Progress</span><span class="info-value" id="info-progress">-</span></div>
+      <div id="info-ram"></div>
+    </div>
+
+    <!-- Game Rules -->
+    <div class="panel-section" id="game-rules-container">
+      <h3>Game Rules</h3>
+      <pre id="game-rules-text" style="background:#0d0d1a; border:1px solid #333; border-radius:4px; padding:8px; font-size:11px; line-height:1.5; max-height:300px; overflow-y:auto; white-space:pre-wrap; word-break:break-word; color:#ccc; margin:0;">Select a game to see rules</pre>
+    </div>
+
+    <!-- Game Tags -->
+    <div class="panel-section" id="game-tags-container">
+      <h3>Game Tags</h3>
+      <div class="field">
+        <label>Info Horizon</label>
+        <select id="tag-info-horizon" onchange="onTagChange()">
+          <option value="">Not tagged</option>
+          <option value="single_frame">Single Frame</option>
+          <option value="few_frames">Few Frames</option>
+          <option value="full_history">Full History</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Environment</label>
+        <select id="tag-env-dynamics" onchange="onTagChange()">
+          <option value="">Not tagged</option>
+          <option value="static">Static</option>
+          <option value="dynamic">Dynamic</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- AI Reasoning Log (shown in AI mode) -->
+    <div id="ai-log-container" class="panel-section hidden">
+      <h3>AI Reasoning Log</h3>
+      <div id="ai-log"></div>
+    </div>
+
+    <!-- Cross-Validation Brief (shown in crossval mode) -->
+    <div id="crossval-brief" class="panel-section hidden">
+      <h3>Cross-Validation Brief</h3>
+      <div class="cv-brief-row"><span class="cv-brief-label">AI Config</span><span class="cv-brief-value" id="cv-brief-config">—</span></div>
+      <div class="cv-brief-row"><span class="cv-brief-label">Game</span><span class="cv-brief-value" id="cv-brief-game">—</span></div>
+      <div class="cv-brief-row"><span class="cv-brief-label">Seed</span><span class="cv-brief-value" id="cv-brief-seed">—</span></div>
+      <div class="cv-brief-row"><span class="cv-brief-label">Action Mode</span><span class="cv-brief-value" id="cv-brief-action-mode">—</span></div>
+      <div class="cv-brief-row"><span class="cv-brief-label">Frame Source</span><span class="cv-brief-value" id="cv-brief-frame-source">—</span></div>
+      <div class="cv-brief-row"><span class="cv-brief-label">Hide Reward</span><span class="cv-brief-value" id="cv-brief-hide-reward">—</span></div>
+      <div class="cv-brief-row"><span class="cv-brief-label">Action Set</span><span class="cv-brief-value" id="cv-brief-action-set">—</span></div>
+      <details style="margin-top:10px;">
+        <summary style="cursor:pointer; font-size:12px; color:#aaa;">Game Rules</summary>
+        <pre id="cv-brief-rules" style="background:#0d0d1a; border:1px solid #333; border-radius:4px; padding:8px; font-size:11px; line-height:1.5; max-height:240px; overflow-y:auto; white-space:pre-wrap; word-break:break-word; color:#ccc; margin:6px 0 0 0;"></pre>
+      </details>
+    </div>
+  </div>
+
+</div>
+
+<!-- JavaScript Modules -->
+<script src="/static/js/core/state.js"></script>
+<script src="/static/js/ui/mode.js"></script>
+<script src="/static/js/game/control.js"></script>
+<script src="/static/js/ws/communication.js"></script>
+<script src="/static/js/game/frame.js"></script>
+<script src="/static/js/game/actions.js"></script>
+<script src="/static/js/ai/manager.js"></script>
+<script src="/static/js/ai/config-store.js"></script>
+<script src="/static/js/game/sequence.js"></script>
+<script src="/static/js/ai/chat.js"></script>
+<script src="/static/js/ui/context.js"></script>
+<script src="/static/js/crossval/hud.js"></script>
+<script src="/static/js/crossval/loader.js"></script>
+<script src="/static/js/crossval/reveal.js"></script>
+<script src="/static/js/core/init.js"></script>
+
+<!-- ========== Chat View Overlay ========== -->
+<div id="chat-overlay" class="hidden">
+  <div id="chat-header">
+    <span id="chat-title">Conversation Log</span>
+    <button onclick="toggleChatView()">✕ Close</button>
+  </div>
+  <div id="chat-messages"></div>
+</div>
+
+<!-- Ending Type Modal -->
+<div id="ending-type-overlay" class="hidden">
+  <div id="ending-type-modal">
+    <h3>Select Ending Type</h3>
+    <p style="color:#aaa;font-size:12px;margin-bottom:12px;">How did this session end?</p>
+    <div id="ending-type-cards">
+      <div class="ending-card" data-type="demo_end" onclick="resolveEndingType('demo_end')">
+        <div class="ending-card-color" style="background:rgb(100,149,237)"></div>
+        <div class="ending-card-body">
+          <div class="ending-card-title">Demo End</div>
+          <div class="ending-card-desc">主动结束示范</div>
+        </div>
+      </div>
+      <div class="ending-card" data-type="victory" onclick="resolveEndingType('victory')">
+        <div class="ending-card-color" style="background:rgb(50,200,50)"></div>
+        <div class="ending-card-body">
+          <div class="ending-card-title">Victory</div>
+          <div class="ending-card-desc">目标达成 / 胜利</div>
+        </div>
+      </div>
+      <div class="ending-card" data-type="game_over" onclick="resolveEndingType('game_over')">
+        <div class="ending-card-color" style="background:rgb(220,50,50)"></div>
+        <div class="ending-card-body">
+          <div class="ending-card-title">Game Over</div>
+          <div class="ending-card-desc">失败 / 死亡 / 生命耗尽</div>
+        </div>
+      </div>
+      <div class="ending-card" data-type="time_out" onclick="resolveEndingType('time_out')">
+        <div class="ending-card-color" style="background:rgb(255,165,0)"></div>
+        <div class="ending-card-body">
+          <div class="ending-card-title">Time Out</div>
+          <div class="ending-card-desc">步数 / 时间上限截断</div>
+        </div>
+      </div>
+      <div class="ending-card" data-type="draw" onclick="resolveEndingType('draw')">
+        <div class="ending-card-color" style="background:rgb(255, 255, 255)"></div>
+        <div class="ending-card-body">
+          <div class="ending-card-title">Draw</div>
+          <div class="ending-card-desc">平局</div>
+        </div>
+      </div>
+    </div>
+    <button onclick="resolveEndingType(null)" style="margin-top:12px;width:100%;">Cancel</button>
+  </div>
+</div>
+
+<!-- Config Load Overlay -->
+<div id="config-load-overlay" class="hidden" style="position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:200; display:flex; align-items:center; justify-content:center;">
+  <div style="background:#1a1a2e; border:1px solid #444; border-radius:8px; padding:20px; min-width:400px; max-width:600px; max-height:70vh; overflow-y:auto;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <h3 style="margin:0; color:#e0e0e0;">Load AI Config</h3>
+      <button onclick="closeLoadConfigDialog()" style="background:none; border:none; color:#aaa; font-size:18px; cursor:pointer;">&times;</button>
+    </div>
+    <div id="config-load-list"></div>
+  </div>
+</div>
+
+<!-- Sequence Manager Modal -->
+<div id="seq-manager-overlay" class="hidden" style="position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:200; display:flex; align-items:center; justify-content:center;">
+  <div style="background:#1a1a2e; border:1px solid #444; border-radius:8px; padding:20px; min-width:420px; max-width:600px; max-height:70vh; overflow-y:auto;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <h3 style="margin:0; color:#e0e0e0;">Sequence Manager</h3>
+      <button onclick="closeSeqManager()" style="background:none; border:none; color:#aaa; font-size:18px; cursor:pointer;">&times;</button>
+    </div>
+    <div id="seq-loaded-indicator" class="hidden" style="color:#4fc3f7; font-size:11px; margin-bottom:8px;"></div>
+    <div id="seq-save-section" style="display:flex; gap:6px; align-items:center; margin-bottom:12px;">
+      <input type="text" id="seq-save-name" placeholder="Sequence name" style="flex:1;">
+      <button id="seq-save-btn" class="success" onclick="saveSequence()" style="font-size:12px; white-space:nowrap;">Save</button>
+    </div>
+    <div id="seq-list"></div>
+    <div id="seq-empty-msg" class="hidden" style="color:#888; font-size:12px; text-align:center; padding:20px;">No saved sequences for this game</div>
+  </div>
+</div>
+
+<!-- Image Lightbox -->
+<div id="img-lightbox" class="hidden" onclick="this.classList.add('hidden')">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<div id="evaluation-save-toast" class="evaluation-save-toast hidden">已经保存了</div>
+
+</body>
+</html>

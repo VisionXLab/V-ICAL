@@ -1,0 +1,118 @@
+{
+  "version": "1.0",
+  "description": "Initial prompt template for AI game playing with support for numeric and natural language modes",
+  "modes": {
+    "numeric": {
+      "description": "AI outputs action as numeric ID (Action: 0, 1, 2...)",
+      "context_template": [
+        "You are playing the game: {game_name}{game_rules}{max_steps}",
+        "",
+        "Available actions:",
+        "{action_list}"
+      ],
+      "instruction_template": [
+        "Your task: Choose the best action for the CURRENT INITIAL STATE shown in the image above.",
+        "",
+        "IMPORTANT - Response format:",
+        "Your response MUST start with your chosen action on the FIRST LINE in this exact format:",
+        "[Action: <number>]",
+        "",
+        "For example:",
+        "[Action: 1]",
+        "",
+        "The square brackets [ ] are REQUIRED. The [Action: X] line MUST be the FIRST line of your response.",
+        "You may add brief reasoning AFTER the action line.",
+        "",
+        "What action do you choose?"
+      ],
+      "template": [
+        "You are playing the game: {game_name}{game_rules}{max_steps}",
+        "",
+        "Available actions:",
+        "{action_list}",
+        "",
+        "Your task: Choose the best action for the CURRENT INITIAL STATE shown in the image above.",
+        "",
+        "IMPORTANT - Response format:",
+        "Your response MUST start with your chosen action on the FIRST LINE in this exact format:",
+        "[Action: <number>]",
+        "",
+        "For example:",
+        "[Action: 1]",
+        "",
+        "The square brackets [ ] are REQUIRED. The [Action: X] line MUST be the FIRST line of your response.",
+        "You may add brief reasoning AFTER the action line.",
+        "",
+        "What action do you choose?"
+      ],
+      "action_list_format": "  {action_id}: {action_meaning}",
+      "game_rules_format": "\n\nGame Rules:\n{game_rules}",
+      "max_steps_format": "\n\nMax Steps: {max_steps}",
+      "video_context_format": "\n\nExample gameplay videos:\n{video_description}"
+    },
+    "natural_language": {
+      "description": "AI outputs action as natural language description (Action: FIRE, turn left...)",
+      "context_template": [
+        "You are playing the game: {game_name}{game_rules}{max_steps}",
+        "",
+        "Available actions:",
+        "{action_list}"
+      ],
+      "instruction_template": [
+        "Your task: Choose the best action for the CURRENT INITIAL STATE shown in the image above.",
+        "",
+        "IMPORTANT - Response format:",
+        "Your response MUST start with your chosen action on the FIRST LINE in this exact format:",
+        "[Action: <action_name>]",
+        "",
+        "For example:",
+        "[Action: FIRE]",
+        "[Action: turn left]",
+        "",
+        "Use the EXACT action names from the list above.",
+        "The square brackets [ ] are REQUIRED. The [Action: X] line MUST be the FIRST line of your response.",
+        "You may add brief reasoning AFTER the action line.",
+        "",
+        "What action do you choose?"
+      ],
+      "template": [
+        "You are playing the game: {game_name}{game_rules}{max_steps}",
+        "",
+        "Available actions:",
+        "{action_list}",
+        "",
+        "Your task: Choose the best action for the CURRENT INITIAL STATE shown in the image above.",
+        "",
+        "IMPORTANT - Response format:",
+        "Your response MUST start with your chosen action on the FIRST LINE in this exact format:",
+        "[Action: <action_name>]",
+        "",
+        "For example:",
+        "[Action: FIRE]",
+        "[Action: turn left]",
+        "",
+        "Use the EXACT action names from the list above.",
+        "The square brackets [ ] are REQUIRED. The [Action: X] line MUST be the FIRST line of your response.",
+        "You may add brief reasoning AFTER the action line.",
+        "",
+        "What action do you choose?"
+      ],
+      "action_list_format": "  - {action_meaning}",
+      "game_rules_format": "\n\nGame Rules:\n{game_rules}",
+      "max_steps_format": "\n\nMax Steps: {max_steps}",
+      "video_context_format": "\n\nExample gameplay videos:\n{video_description}"
+    }
+  },
+  "placeholders": {
+    "game_name": "Game environment name",
+    "game_rules": "Pre-formatted game rules (includes 'Game Rules:' header), empty string if not provided",
+    "video_context": "Pre-formatted example gameplay video description, empty string if not provided",
+    "action_list": "Formatted list of available actions (format depends on mode)"
+  },
+  "notes": [
+    "context_template is sent before media; instruction_template is sent after the current-state image",
+    "The template list is kept for backwards-compatible full prompt generation",
+    "Empty strings in the template create blank lines",
+    "action_list_format defines how each action is formatted in the action list"
+  ]
+}

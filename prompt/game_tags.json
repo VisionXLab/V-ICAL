@@ -1,0 +1,187 @@
+{
+  "CliffWalking-v1": {
+    "info_horizon": "single_frame",
+    "env_dynamics": "static",
+    "game_type": ["maze"]
+  },
+  "ALE/Seaquest-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter"]
+  },
+  "Acrobot-v1": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "static",
+    "game_type": ["control"]
+  },
+  "ALE/Freeway-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge"]
+  },
+  "CustomBreakout": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "collect"]
+  },
+  "CustomLavaCrossing-v0": {
+    "info_horizon": "full_history",
+    "env_dynamics": "static",
+    "game_type": ["maze"]
+  },
+  "CustomMultiRoom-v0": {
+    "info_horizon": "full_history",
+    "env_dynamics": "static",
+    "game_type": ["maze"]
+  },
+  "CustomUnlockPickup-v0": {
+    "info_horizon": "full_history",
+    "env_dynamics": "static",
+    "game_type": ["maze"]
+  },
+  "MountainCar-v0": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "static",
+    "game_type": ["control"]
+  },
+  "ALE/Frostbite-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge"]
+  },
+  "ALE/Asterix-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge", "collect"]
+  },
+  "ALE/Assault-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "dodge"]
+  },
+  "ALE/Alien-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["maze", "dodge", "collect"]
+  },
+  "ALE/RoadRunner-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge", "collect"]
+  },
+  "ALE/Tennis-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["sports"]
+  },
+  "highway-v0": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge"]
+  },
+  "aFlappyBird-v1": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge"]
+  },
+  "tetris_gymnasium/Tetris": {
+    "info_horizon": "single_frame",
+    "env_dynamics": "static",
+    "game_type": ["collect"]
+  },
+  "procgen_:procgen-bigfish-v0": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "collect"]
+  },
+  "procgen_:procgen-bossfight-v0": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "dodge"]
+  },
+  "procgen_:procgen-caveflyer-v0": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["maze", "dodge"]
+  },
+  "procgen_:procgen-dodgeball-v0": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "dodge", "maze"]
+  },
+  "procgen_:procgen-heist-v0": {
+    "info_horizon": "single_frame",
+    "env_dynamics": "static",
+    "game_type": ["maze", "collect"]
+  },
+  "procgen_:procgen-leaper-v0": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge"]
+  },
+  "procgen_:procgen-ninja-v0": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "static",
+    "game_type": ["dodge"]
+  },
+  "Taxi-v3": {
+    "info_horizon": "single_frame",
+    "env_dynamics": "static",
+    "game_type": ["maze"]
+  },
+  "CartPole-v1": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["control"]
+  },
+  "ALE/Enduro-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge"]
+  },
+  "ALE/DemonAttack-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge", "shooter"]
+  },
+  "ALE/MsPacman-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["dodge", "maze", "collect"]
+  },
+  "ALE/Pong-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["sports"]
+  },
+  "ALE/BattleZone-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "dodge"]
+  },
+  "ALE/Turmoil-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "dodge"]
+  },
+  "ALE/Riverraid-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "dodge"]
+  },
+  "ALE/Trondead-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter", "dodge"]
+  },
+  "ALE/ChopperCommand-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["shooter"]
+  },
+  "ALE/Berzerk-v5": {
+    "info_horizon": "few_frames",
+    "env_dynamics": "dynamic",
+    "game_type": ["maze", "shooter"]
+  }
+}

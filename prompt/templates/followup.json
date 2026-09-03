@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "description": "Followup prompt template for subsequent game steps with support for numeric and natural language modes",
+  "modes": {
+    "numeric": {
+      "description": "AI outputs action as numeric ID (Action: 0, 1, 2...)",
+      "context_template": [
+        "Step {step} - Result of your last action:",
+        "",
+        "Previous action: {last_action_id} ({last_action_meaning})",
+        "Reward: {reward:.2f}",
+        "Cumulative reward: {cumulative_reward:.2f}{status_info}{life_info}"
+      ],
+      "instruction_template": [
+        "Choose the next action for the CURRENT STATE shown in the image above.",
+        "",
+        "IMPORTANT: Your response MUST start with [Action: <number>] on the FIRST LINE.",
+        "You may add brief reasoning after."
+      ],
+      "template": [
+        "Step {step} - Result of your last action:",
+        "",
+        "Previous action: {last_action_id} ({last_action_meaning})",
+        "Reward: {reward:.2f}",
+        "Cumulative reward: {cumulative_reward:.2f}{status_info}{life_info}",
+        "",
+        "This is the CURRENT STATE after executing your action.",
+        "",
+        "What action do you choose next?",
+        "",
+        "IMPORTANT: Your response MUST start with [Action: <number>] on the FIRST LINE.",
+        "You may add brief reasoning after."
+      ]
+    },
+    "natural_language": {
+      "description": "AI outputs action as natural language description (Action: FIRE, turn left...)",
+      "context_template": [
+        "Step {step} - Result of your last action:",
+        "",
+        "Previous action: {last_action_meaning}",
+        "Reward: {reward:.2f}",
+        "Cumulative reward: {cumulative_reward:.2f}{status_info}{life_info}"
+      ],
+      "instruction_template": [
+        "Choose the next action for the CURRENT STATE shown in the image above.",
+        "",
+        "IMPORTANT: Your response MUST start with [Action: <action_name>] on the FIRST LINE.",
+        "You may add brief reasoning after."
+      ],
+      "template": [
+        "Step {step} - Result of your last action:",
+        "",
+        "Previous action: {last_action_meaning}",
+        "Reward: {reward:.2f}",
+        "Cumulative reward: {cumulative_reward:.2f}{status_info}{life_info}",
+        "",
+        "This is the CURRENT STATE after executing your action.",
+        "",
+        "What action do you choose next?",
+        "",
+        "IMPORTANT: Your response MUST start with [Action: <action_name>] on the FIRST LINE.",
+        "You may add brief reasoning after."
+      ]
+    }
+  },
+  "status_templates": {
+    "terminated": "\n⚠️ Game TERMINATED (episode ended naturally).",
+    "truncated": "\n⚠️ Game TRUNCATED (time limit or other constraint).",
+    "life_lost": "\n💀 Life lost! Lives: {lives_before} → {lives_after}{auto_respawn_info}"
+  },
+  "placeholders": {
+    "step": "Current step number",
+    "last_action_id": "Last action ID (numeric mode only)",
+    "last_action_meaning": "Last action meaning/description",
+    "reward": "Immediate reward from last action",
+    "cumulative_reward": "Total cumulative reward so far",
+    "status_info": "Game status info (terminated/truncated), empty string if none",
+    "life_info": "Life lost info, empty string if none",
+    "lives_before": "Lives before last action (for life_lost template)",
+    "lives_after": "Lives after last action (for life_lost template)",
+    "auto_respawn_info": "Auto-respawn info string (for life_lost template)"
+  },
+  "notes": [
+    "context_template is sent before the current-state image; instruction_template is sent after it",
+    "The template list is kept for backwards-compatible full prompt generation",
+    "status_info and life_info are pre-formatted with leading newlines in status_templates",
+    "In natural_language mode, last_action_id is not shown to AI"
+  ]
+}
