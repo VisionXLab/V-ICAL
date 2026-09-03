@@ -45,7 +45,6 @@ COMMANDS = {
     "play":             ("interactive_env",        "main", False, "人类交互玩游戏 (终端选择)"),
     "batch":            ("tools.batch",            "main", True,  "headless 批量评测 (ai_configs × 游戏 × runs)"),
     "viewer":           ("tools.viewer",           "main", False, "批结果网页 viewer"),
-    "compare-viewer":   ("tools.viewer",           "main", False, "模型评测对比 viewer (Gemini Flash vs Pro)"),
     "eval-batch":       ("tools.eval_batch",       "main", True,  "batch_results 及格(pass)评估"),
     "eval-crossval":    ("tools.eval_crossval",    "main", True,  "crossval_operation 及格(pass)评估"),
     "count-fails":      ("tools.count_fails",      "main", False, "统计某 run 的不及格(提前结束)数"),
@@ -66,12 +65,6 @@ _ORDER = list(COMMANDS.keys())
 def _dispatch(cmd: str, rest: list[str]) -> int:
     """设好 sys.argv 后惰性 import 目标模块并执行其 main()。"""
     mod_path, func_name, is_async, _desc = COMMANDS[cmd]
-    if cmd == "compare-viewer":
-        rest = [
-            "--compare-base", "eval_results/eval_gemini-3-flash-preview.json",
-            "--compare-target", "eval_results/eval_gemini-3.1-pro-preview.json",
-            *rest,
-        ]
     # 让目标模块的 argparse / sys.argv 解析就像被直接调用一样
     sys.argv = [f"vcl {cmd}"] + rest
     module = importlib.import_module(mod_path)
