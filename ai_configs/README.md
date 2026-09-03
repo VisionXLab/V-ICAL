@@ -1,11 +1,13 @@
-# AI 配置数据
+# AI Configuration Data
 
-正式的 `ai_configs/` 内容存放在私有 Hugging Face 仓库中，不随 GitHub 代码仓库发布。
+The full `ai_configs/` dataset is stored in the private Hugging Face repository
+[`Mingqian-233/V-ICAL-ai-configs`](https://huggingface.co/datasets/Mingqian-233/V-ICAL-ai-configs). It is not committed to the GitHub source repository.
 
-完成 Hugging Face 登录后，在 V-ICAL 根目录执行：
+After installing the project dependencies, authenticate with Hugging Face and explicitly download the data into `ai_configs/` from the V-ICAL root directory:
 
 ```bash
-hf download <你的账号>/V-ICAL-ai-configs --repo-type dataset --local-dir ai_configs
+hf auth login
+hf download Mingqian-233/V-ICAL-ai-configs --repo-type dataset --local-dir ai_configs
 ```
 
-下载后，`ai_configs/` 应包含按游戏和配置名称组织的 `config.json`、动作序列及上下文示例文件。
+The downloaded directory contains per-game `config.json` files, context frames, videos, and references to preload action sequences used by batch evaluation.
