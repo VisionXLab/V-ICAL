@@ -1,7 +1,7 @@
 # AI Configuration Data
 
 The full `ai_configs/` dataset is stored in the private Hugging Face repository
-[`Mingqian-233/V-ICAL-ai-configs`](https://huggingface.co/datasets/Mingqian-233/V-ICAL-ai-configs). It is not committed to the GitHub source repository.
+[`VisionXLab//V-ICAL-ai-configs`](https://huggingface.co/datasets/VisionXLab//V-ICAL-ai-configs). It is not committed to the GitHub source repository.
 
 After installing the project dependencies, authenticate with Hugging Face and explicitly download the data into `ai_configs/` from the V-ICAL root directory:
 
