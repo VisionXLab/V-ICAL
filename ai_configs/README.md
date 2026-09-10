@@ -7,7 +7,7 @@ After installing the project dependencies, authenticate with Hugging Face and ex
 
 ```bash
 hf auth login
-hf download Mingqian-233/V-ICAL-ai-configs --repo-type dataset --local-dir ai_configs
+hf download VisionXLab//V-ICAL-ai-configs --repo-type dataset --local-dir ai_configs
 ```
 
 The downloaded directory contains per-game `config.json` files, context frames, videos, and references to preload action sequences used by batch evaluation.
