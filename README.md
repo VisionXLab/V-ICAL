@@ -88,7 +88,7 @@ The GitHub repository does not contain the visual demonstrations and per-task AI
 
 ```bash
 hf auth login
-hf download Mingqian-233/V-ICAL-ai-configs --repo-type dataset --local-dir ai_configs
+hf download VisionXLab//V-ICAL-ai-configs --repo-type dataset --local-dir ai_configs
 ```
 
 After downloading, verify that paths such as `ai_configs/Acrobot-v1/s0/config.json` exist.
@@ -238,9 +238,4 @@ At minimum, update these files in order:
 
 Update frontend defaults, tags, reward shaping, BFS support, or cross-validation wrappers only when the game requires them. Canonical action names must be concise English labels and must exactly match the meanings defined in `env_wrapper.py`.
 
-## Repository separation
 
-- Private GitHub repository: [`Mingqian-233/V-ICAL`](https://github.com/Mingqian-233/V-ICAL) contains source code, environments, prompts, frontend assets, and this guide.
-- Private Hugging Face dataset: [`Mingqian-233/V-ICAL-ai-configs`](https://huggingface.co/datasets/Mingqian-233/V-ICAL-ai-configs) contains the larger AI configurations and visual demonstrations.
-
-Neither repository should contain API keys, provider credentials, evaluation outputs, or runtime logs.
