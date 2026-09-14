@@ -1,11 +1,12 @@
 # V-ICAL
 
 <p align="center">
-  <img src="assets/vibe_gaming_logo.png" alt="VIBE Gaming logo" width="600">
+  <img src="assets/vical_logo.png" alt="V-ICAL logo" width="600">
 </p>
 
 [![Hugging Face Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/datasets/VisionXLab/V-ICAL)
-![Homepage](https://img.shields.io/badge/Homepage-Coming%20soon-808080?logo=googlechrome&logoColor=white)
+[![Homepage](https://img.shields.io/badge/Homepage-Visit-0088CC?logo=googlechrome&logoColor=white)](https://visionxlab.github.io/V-ICAL-Homepage/)
+![Paper](https://img.shields.io/badge/Paper-TODO-808080)
 
 V-ICAL is a vision-based platform for interactive game playing and evaluation with multimodal language models. It provides a browser-based interface for human and AI play, visual demonstration loading, strict action parsing, batch execution, replay-based evaluation, ablation studies, cross-validation, and LLM-based trajectory auditing.
 
